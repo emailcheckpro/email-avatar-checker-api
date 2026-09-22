@@ -1,0 +1,55 @@
+{
+  "name": "Email Avatar Check API",
+  "brand": "EmailCheckPro",
+  "repository": "emailcheckpro/email-avatar-checker-api",
+  "description": "Synchronous single and batch Email Avatar Check for email addresses.",
+  "official_site": "https://emailcheckpro.com",
+  "landing_page": "https://emailcheckpro.com/products/email_avatar",
+  "canonical_docs": "https://emailcheckpro.com/api-docs",
+  "base_url": "https://emailcheckpro.com",
+  "auth": {
+    "type": "api_key",
+    "header": "X-API-Key"
+  },
+  "mode": "sync-batch",
+  "endpoints": {
+    "single": {
+      "method": "POST",
+      "path": "/api/v1/check"
+    },
+    "batch": {
+      "method": "POST",
+      "path": "/api/v1/batch-check",
+      "min_items": 1,
+      "max_items": 100
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/api/v1/balance"
+    }
+  },
+  "limits": {
+    "requests_in_flight": 5,
+    "concurrent_batches": 1,
+    "batch_timeout_seconds": 300
+  },
+  "products": [
+    {
+      "type": "email_avatar",
+      "name": "Email Avatar Check",
+      "inputKind": "email",
+      "fields": [
+        "service_type",
+        "identifier",
+        "registered",
+        "avatar",
+        "avatar_url",
+        "provider"
+      ]
+    }
+  ],
+  "pricing_url": "https://emailcheckpro.com/pricing",
+  "maintainer": "EmailCheckPro",
+  "license": "MIT",
+  "last_reviewed": "2026-09-22"
+}
