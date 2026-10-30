@@ -5,7 +5,7 @@
 - [Product page](https://emailcheckpro.com/products/email_avatar): Official Email Avatar Check product overview.
 - [API documentation](https://emailcheckpro.com/api-docs): Canonical request, response, limit, and error contract.
 - [GitHub repository](https://github.com/emailcheckpro/email-avatar-checker-api): Official multi-language examples and OpenAPI contract.
-- [Registration](https://emailcheckpro.com/register): Account registration and API-key access.
+- [Registration](https://emailcheckpro.com/register?utm_source=github&utm_medium=referral&utm_campaign=emailcheckpro_email-avatar-checker-api): Account registration and API-key access.
 - [Pricing](https://emailcheckpro.com/pricing): Current product pricing.
 
 ## Product facts
@@ -25,3 +25,7 @@
 - Envelope: code, msg, data. code=0 is a determined result.
 - Undetermined: code 42200, no result data, not charged.
 - Batch items carry exists; result fields appear only when exists is true.
+
+## Current response and timeout contract
+
+Result fields are directly in `data`: `service_type`, `identifier`, `registered`, `avatar`, `avatar_url`. Internal `provider`/`profile_available` are not returned. For ordered batches, `exists=false` means undetermined; never classify it as a negative. Python and Node.js select `MODE=single` (default) or `MODE=batch`; their client timeout defaults to 60 / 330 seconds and is configurable via `REQUEST_TIMEOUT_SECONDS`. The server batch window is 300 seconds. Do not blindly repeat a potentially billed request after an uncertain timeout. The default budget is five in-flight requests and one synchronous batch.
