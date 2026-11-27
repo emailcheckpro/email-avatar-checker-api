@@ -3,7 +3,7 @@ $key = getenv('EMAILCHECKPRO_API_KEY');
 if (!$key) {
     throw new Exception('Set EMAILCHECKPRO_API_KEY');
 }
-$body = json_encode(['service_type' => 'email_avatar', 'identifier' => 'alex.kim@gmail.com'], JSON_THROW_ON_ERROR);
+$body = json_encode(['service_type' => 'email_avatar', 'identifier' => 'alex.kim@example.com'], JSON_THROW_ON_ERROR);
 $curl = curl_init('https://emailcheckpro.com/api/v1/check');
 curl_setopt_array($curl, [
     CURLOPT_POST => true,

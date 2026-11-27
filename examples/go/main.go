@@ -13,7 +13,7 @@ func main() {
 	if key == "" {
 		panic("Set EMAILCHECKPRO_API_KEY")
 	}
-	body := []byte("{\"service_type\":\"email_avatar\",\"identifier\":\"alex.kim@gmail.com\"}")
+	body := []byte("{\"service_type\":\"email_avatar\",\"identifier\":\"alex.kim@example.com\"}")
 	req, _ := http.NewRequest("POST", "https://emailcheckpro.com/api/v1/check", bytes.NewReader(body))
 	req.Header.Set("X-API-Key", key)
 	req.Header.Set("Content-Type", "application/json")
